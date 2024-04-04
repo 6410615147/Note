@@ -11,6 +11,7 @@ struct RegisterView: View {
     @StateObject var viewModel = RegisterViewModel()
     var body: some View {
         VStack {
+            HeaderView(title: "Register", subtitle: "Start Note things", angle: -15, background: .orange)
             Form {
                 TextField("Full Name", text: $viewModel.name)
                     .textFieldStyle(DefaultTextFieldStyle())

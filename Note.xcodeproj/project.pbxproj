@@ -39,6 +39,7 @@
 		5E2589A52BBC580A00A1F128 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5E2589A42BBC580A00A1F128 /* FirebaseFirestoreSwift */; };
 		5E2589A72BBC586900A1F128 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5E2589A62BBC586900A1F128 /* FirebaseAuth */; };
 		5E2589A92BBC58A400A1F128 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5E2589A82BBC58A400A1F128 /* FirebaseFirestore */; };
+		5EE2BF842BBF15350083343B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE2BF832BBF15350083343B /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		5E25899B2BBC50E100A1F128 /* NoteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteItem.swift; sourceTree = "<group>"; };
 		5E25899F2BBC513600A1F128 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5E2589A12BBC551600A1F128 /* TLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLButton.swift; sourceTree = "<group>"; };
+		5EE2BF832BBF15350083343B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				5E25897F2BBC4FF100A1F128 /* NoteDetailView.swift */,
 				5E2589942BBC50A400A1F128 /* NoteListView.swift */,
 				5E2589A12BBC551600A1F128 /* TLButton.swift */,
+				5EE2BF832BBF15350083343B /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				5E2589722BBC4C3E00A1F128 /* MainView.swift in Sources */,
 				5E2589742BBC4C4500A1F128 /* LoginView.swift in Sources */,
 				5E25897C2BBC4E1900A1F128 /* NoteItemView.swift in Sources */,
+				5EE2BF842BBF15350083343B /* HeaderView.swift in Sources */,
 				5E25898B2BBC505C00A1F128 /* ProfileViewModel.swift in Sources */,
 				5E25898D2BBC506500A1F128 /* NoteItemViewModel.swift in Sources */,
 				5E2589932BBC508D00A1F128 /* NoteListViewModel.swift in Sources */,

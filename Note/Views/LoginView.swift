@@ -13,7 +13,7 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
+                HeaderView(title: "Note", subtitle: "Note things", angle: 15, background: .pink)
                 Form {
                     TextField("Email Address", text: $viewModel.email)
                         .textFieldStyle(DefaultTextFieldStyle())
