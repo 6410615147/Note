@@ -11,7 +11,7 @@ struct NewNoteView: View {
     @StateObject var viewModel = NewNoteViewModel()
     @Binding var newItemPresented: Bool
     var doNote = "New"
-    var item: NoteItem? = nil
+    var item: NoteItem?
     
     var body: some View {
         VStack {
@@ -22,10 +22,20 @@ struct NewNoteView: View {
             
             Form {
                 TextField("Title", text: $viewModel.title)
+                    .onAppear {
+                        if let itemTitle = item?.title {
+                            viewModel.title = itemTitle
+                        }
+                    }
                     .textFieldStyle(DefaultTextFieldStyle())
                 
                 
                 TextField("Content", text: $viewModel.content, axis: .vertical)
+                    .onAppear {
+                        if let itemContent = item?.content {
+                            viewModel.content = itemContent
+                        }
+                    }
                     .lineLimit(15, reservesSpace: true)
                     .textFieldStyle(DefaultTextFieldStyle())
                     
