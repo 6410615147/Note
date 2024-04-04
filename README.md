@@ -15,8 +15,7 @@
 ![์Note Detail](./Images/NoteDetail.png "Note Detail")
 - สามารถกดดูรายละเอียด Profile ได้\
 ![Profile](./Images/Profile.png "Profile")
-- สามารถออกจากระบบได้\
-![Logout](./Images/Logout.png "Logout")
+- สามารถออกจากระบบได้
    
 Click [here]() for clip demo.
 
