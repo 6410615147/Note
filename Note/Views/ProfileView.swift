@@ -17,6 +17,7 @@ struct ProfileView: View {
                     .aspectRatio(contentMode: .fit)
                     .foregroundColor(.blue)
                     .frame(width: 125, height: 125)
+                    .padding(50)
                 
                 VStack(alignment: .leading) {
                     HStack {
@@ -32,16 +33,18 @@ struct ProfileView: View {
                         Text("\(Date(timeIntervalSince1970: user.joined).formatted(date: .abbreviated, time: .shortened))")
                     }
                 }
+                Spacer()
                 
-                Button {
+                TLButton(title: "Logout", background: .red) {
                     viewModel.logOut()
-                } label: {
-                    Text("Logout")
                 }
+                .frame(height: 50)
+                
             } else {
                 Text("Loading Profile...")
             }
         }
+        .padding()
         .onAppear {
             viewModel.fetchUser()
         }

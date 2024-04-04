@@ -12,26 +12,28 @@ struct NoteListView: View {
     @StateObject var viewModel: NoteListViewModel
     
     @FirestoreQuery var items: [NoteItem]
+    let userId: String
     
     init(userId: String) {
         self._items = FirestoreQuery(collectionPath: "users/\(userId)/todos")
         self._viewModel = StateObject(wrappedValue: NoteListViewModel(userId: userId))
+        self.userId = userId
     }
     
     var body: some View {
         NavigationView {
             VStack {
                 List(items) { item in
-                    NavigationLink(destination: NoteDetailView(item: item)) {
-                        NoteItemView(item: item)
-                            .swipeActions {
-                                Button {
-                                    viewModel.delete(id: item.id)
-                                } label: {
-                                    Image(systemName: "trash.fill")
+                    NavigationLink(destination: NoteDetailView(userId: userId, item: item)) {
+                            NoteItemView(item: item)
+                                .swipeActions {
+                                    Button {
+                                        viewModel.delete(id: item.id)
+                                    } label: {
+                                        Image(systemName: "trash.fill")
+                                    }
+                                    .tint(.red)
                                 }
-                                .tint(.red)
-                            }
                     }
                 }
                 .listStyle(PlainListStyle())

@@ -10,10 +10,12 @@ import SwiftUI
 struct NewNoteView: View {
     @StateObject var viewModel = NewNoteViewModel()
     @Binding var newItemPresented: Bool
+    var doNote = "New"
+    var item: NoteItem? = nil
     
     var body: some View {
         VStack {
-            Text("New Item")
+            Text("\(doNote) Item")
                 .font(.system(size: 32))
                 .bold()
                 .padding(.top, 50)
@@ -30,7 +32,11 @@ struct NewNoteView: View {
                 
                 TLButton(title: "Save", background: .pink) {
                     if viewModel.canSave {
-                        viewModel.save()
+                        if self.doNote == "New" {
+                            viewModel.save()
+                        } else {
+                            viewModel.edit(note: item!)
+                        }
                         newItemPresented = false
                     } else {
                         viewModel.showAlert = true

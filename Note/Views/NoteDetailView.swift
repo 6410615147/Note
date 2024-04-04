@@ -6,26 +6,44 @@
 //
 
 import SwiftUI
+import FirebaseFirestoreSwift
 
 struct NoteDetailView: View {
-    @StateObject var viewModel = NoteItemViewModel()
+    @StateObject var viewModel: NoteDetailViewModel
     let item: NoteItem
     
+    init(userId: String, item: NoteItem) {
+        self.item = item
+        self._viewModel = StateObject(wrappedValue: NoteDetailViewModel(userId: userId))
+    }
+    
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(item.title)
-                    .font(.title)
-                    .bold()
-                
+        
+        VStack {
+            HStack {
                 Text(item.content)
-                    .font(.footnote)
+                    .font(.title3)
                     .foregroundColor(Color(.secondaryLabel))
+                Spacer()
             }
         }
+        .navigationTitle(item.title)
+        .toolbar {
+            Button {
+                viewModel.showingNewItemView = true
+            } label: {
+                Image(systemName: "pencil")
+            }
+        }
+        .padding()
+        .sheet(isPresented: $viewModel.showingNewItemView) {
+            NewNoteView(newItemPresented: $viewModel.showingNewItemView, doNote: "Edit", item: item)
+        }
+            
+        Spacer()
     }
 }
 
 #Preview {
-    NoteDetailView(item: NoteItem(id: "123", title: "Get Milk", content: "temp", createDate: Date().timeIntervalSince1970))
+    NoteDetailView(userId: "qRSYEOoLBiSynBuqlwBVAxRNb7a2", item: NoteItem(id: "123", title: "Get Milk", content: "temp", createDate: Date().timeIntervalSince1970))
 }

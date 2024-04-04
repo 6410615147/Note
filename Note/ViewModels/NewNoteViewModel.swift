@@ -36,6 +36,31 @@ class NewNoteViewModel: ObservableObject {
             .setData(newItem.asDictionary())
     }
     
+    func edit(note: NoteItem) {
+        guard canSave else { return }
+        
+        guard let uId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        if title == "" {
+            title = note.title
+        }
+        if content == "" {
+            content = note.content
+        }
+        
+        let db = Firestore.firestore()
+        db.collection("users")
+            .document(uId)
+            .collection("todos")
+            .document(note.id)
+            .updateData([
+                "title": title,
+                "content": content
+        ])
+    }
+    
     var canSave: Bool {
         guard !title.trimmingCharacters(in: .whitespaces).isEmpty else {
             return false
